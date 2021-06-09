@@ -12,10 +12,11 @@ export class AppComponent {
   constructor(private fb: FormBuilder) {
     this.rubric = this.fb.group({
       criteria: this.fb.array([]),
-      parameters: new FormArray([]),
+      // parameters: new FormArray([]),
+      parameter: [''],
     });
     this.addCriteria();
-    this.addParameter();
+    // this.addParameter();
   }
 
   get criteria(): FormArray {
@@ -34,21 +35,21 @@ export class AppComponent {
     this.criteria.removeAt(index);
   }
 
-  get parameters(): FormArray {
-    return this.rubric.get('parameters') as FormArray;
-  }
+  // get parameters(): FormArray {
+  //   return this.rubric.get('parameters') as FormArray;
+  // }
 
-  addParameter() {
-    const parameter = this.fb.group({
-      parameter: new FormControl(''),
-    });
+  // addParameter() {
+  //   const parameter = this.fb.group({
+  //     parameter: new FormControl(''),
+  //   });
 
-    this.parameters.push(parameter);
-  }
+  //   this.parameters.push(parameter);
+  // }
 
-  deleteParameter(index: number) {
-    this.parameters.removeAt(index);
-  }
+  // deleteParameter(index: number) {
+  //   this.parameters.removeAt(index);
+  // }
 
   showForm() {
     console.log(this.rubric.getRawValue());
